@@ -1,0 +1,43 @@
+{
+  "name": "@nftx/web3",
+  "version": "1.0.4",
+  "description": "",
+  "homepage": "https://github.com/NFTX-project/nftxjs",
+  "license": "MIT",
+  "main": "dist/cjs/web3.js",
+  "module": "dist/es/web3.js",
+  "types": "dist/ts/index.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NFTX-project/nftxjs.git"
+  },
+  "scripts": {
+    "lint": "eslint --fix -c ../../.eslintrc.js --ext ts,tsx src && tsc --noEmit",
+    "test": "jest --config ../../jest.config.js",
+    "build": "rm -rf dist && rollup -c && tsc -d --outDir dist/ts --emitDeclarationOnly",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "@ethersproject/abi": "^5.6.0",
+    "@ethersproject/bignumber": "^5.6.0",
+    "@ethersproject/constants": "^5.6.0",
+    "@ethersproject/contracts": "^5.6.0",
+    "@ethersproject/providers": "^5.6.2",
+    "@ethersproject/units": "^5.6.0",
+    "ethers": "^5.6.2"
+  },
+  "devDependencies": {
+    "@nftx/constants": "solimander/gitpkg-registry#nftx-constants-v1.0.0-gitpkg"
+  },
+  "peerDependencies": {
+    "@nftx/constants": "solimander/gitpkg-registry#nftx-constants-v1.0.0-gitpkg"
+  },
+  "bugs": {
+    "url": "https://github.com/NFTX-project/nftxjs/issues"
+  },
+  "sideEffects": false
+}
